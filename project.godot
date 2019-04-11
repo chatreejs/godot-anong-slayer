@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="Anong Slayer"
-run/main_scene="res://StageOne.tscn"
+run/main_scene="res://scene/level_1.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GLOBAL="*res://code/global.gd"
 
 [display]
 
