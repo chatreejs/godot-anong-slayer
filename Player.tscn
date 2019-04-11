@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://sprite/player/idle 00.png" type="Texture" id=2]
+[ext_resource path="res://sprite/player/idle 01.png" type="Texture" id=3]
+[ext_resource path="res://sprite/player/idle 02.png" type="Texture" id=4]
+[ext_resource path="res://sprite/player/idle 03.png" type="Texture" id=5]
+[ext_resource path="res://sprite/player/jump 00.png" type="Texture" id=6]
+[ext_resource path="res://sprite/player/jump 03.png" type="Texture" id=7]
+[ext_resource path="res://sprite/player/jump 01.png" type="Texture" id=8]
+[ext_resource path="res://sprite/player/run 00.png" type="Texture" id=9]
+[ext_resource path="res://sprite/player/run 01.png" type="Texture" id=10]
+[ext_resource path="res://sprite/player/run 02.png" type="Texture" id=11]
+[ext_resource path="res://sprite/player/run 03.png" type="Texture" id=12]
+[ext_resource path="res://sprite/player/jump 02.png" type="Texture" id=13]
+[ext_resource path="res://sprite/player/grab 00.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "touch_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "air_run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "grab",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.0665, 39.8894 )
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+animation = "run"
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.0200062, 3.87411 )
+scale = Vector2( 2.78227, 1.00336 )
+shape = SubResource( 2 )
+
+[node name="dash_timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="ghost_timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.07
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="ghost_timer" to="." method="_on_ghost_timer_timeout"]
+
+
