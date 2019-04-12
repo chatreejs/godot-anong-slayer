@@ -1,14 +1,15 @@
 extends KinematicBody2D
 
 const SPEED = 500
-const GRAVITY = 50
-const JUMP_POWER = -800
-const JUMP_TAP = -400
+const GRAVITY = 60
+const JUMP_POWER = -900
 const FLOOR = Vector2(0, -1)
 const DEADZONE = 0.3
 
 var velocity = Vector2()
-var look_direction = Vector2(1, 0)
+var dir_x
+var left
+var right
 
 var img_dash = preload("res://scene/dash.tscn")
 
@@ -32,19 +33,23 @@ func _physics_process(delta):
 	timer += delta
 	if timer > TIMER_LIMIT: # Prints every 2 seconds
 		timer = 0.0
-		print("fps: " + str(Engine.get_frames_per_second()))
+#		print("fps: " + str(Engine.get_frames_per_second()))
 	
-	if Input.is_action_pressed("ui_right"):		
+	left = Input.is_action_pressed("ui_left")
+	right = Input.is_action_pressed("ui_right")
+	dir_x = int(right) - int(left)
+	
+	if dir_x == 1:		
 		if dashing == true:
-			velocity.x = SPEED * 2.5
+			velocity.x = SPEED * 3
 		else:
 			velocity.x = SPEED
 		
 		$AnimatedSprite.flip_h = false
 		
-	elif Input.is_action_pressed("ui_left"):
+	elif dir_x == -1:
 		if dashing == true:
-			velocity.x = -SPEED * 2.5
+			velocity.x = -SPEED * 3
 		else:
 			velocity.x = -SPEED
 		
@@ -62,21 +67,25 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("dash"):
 		if !is_on_wall() and abs(velocity.x) > 0 and !is_dash:
+			if !is_on_floor() and is_jump:
+				GRAVITY = 0
+				$air_dash_time.start()
 			dashing = true
 			is_dash = true
 			Input.start_joy_vibration(0, 1, 1, 0.2)
-			change_state(DASH)
+#			change_state(DASH)
 			
 	if wall == true and Input.is_action_pressed("grab"):
 		velocity.y = -20
 		$AnimatedSprite.play("grab")
 		if Input.is_action_just_pressed("jump"):
-			velocity = Vector2(-velocity.x * 2, -750)
+			velocity = Vector2(-velocity.x * 2, -850)
 			velocity = move_and_slide(velocity, FLOOR)
 			$AnimatedSprite.play("air_run")
 			Input.start_joy_vibration(0, 1, 1, 0.1)
 		
 	velocity.y += GRAVITY
+	print("vel x: " + str(velocity.x) + " y: " + str(velocity.y) + " is_jump: " +str(is_jump) + " is_dash: " + str(is_dash) + " state: " + str(state) + " on_ground: " + str(is_on_floor()))
 	
 	if is_on_floor():
 		on_ground = true
@@ -92,7 +101,7 @@ func _physics_process(delta):
 		wall = true
 	else:
 		wall = false
-
+		
 	velocity = move_and_slide(velocity, FLOOR)
 	state_loop()
 	
@@ -106,9 +115,9 @@ func jump_cut():
 		velocity.y = -100
 
 func state_loop():
-	if state == IDLE and velocity.x != 0:
+	if state == IDLE and velocity.x != 0 and !is_jump:
 		change_state(RUN)
-	if state == RUN and velocity.x == 0:
+	if state == RUN and velocity.x == 0 and !is_jump:
 		change_state(IDLE)
 	if state in [IDLE, RUN] and !is_on_floor():
 		change_state(JUMP)
@@ -116,6 +125,8 @@ func state_loop():
 		change_state(FALL)
 	if state in [JUMP, FALL] and is_on_floor():
 		change_state(IDLE)
+	if state in [RUN, JUMP, FALL] and dashing == true:
+		change_state(DASH)
 
 func change_state(new_state):
 	state = new_state
@@ -137,5 +148,5 @@ func change_state(new_state):
 			dashing = false
 			change_state(IDLE)
 
-func _on_Timer_timeout():
-	SPEED = 500
+func _on_air_dash_time_timeout():
+	GRAVITY = 60

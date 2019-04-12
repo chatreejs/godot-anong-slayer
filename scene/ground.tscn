@@ -1,6 +1,9 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://img/environment/sheet.png" type="Texture" id=1]
+[ext_resource path="res://asset/environment/sheet.png" type="Texture" id=1]
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -47,11 +50,10 @@ extents = Vector2( 6, 8 )
 custom_solver_bias = 0.0
 extents = Vector2( 5.21739, 8 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="Ground00" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( -33, -33 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 1 )

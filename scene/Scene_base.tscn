@@ -3,8 +3,11 @@
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scene/ground tileset.tres" type="TileSet" id=3]
-[ext_resource path="res://img/environment/right.png" type="Texture" id=4]
-[ext_resource path="res://img/environment/left.png" type="Texture" id=5]
+[ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
+[ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
+
+
+
 
 [node name="Scene" type="Node2D"]
 

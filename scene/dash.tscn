@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 0, 0, 0.530392 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="dash" type="AnimatedSprite" index="0"]
+[node name="dash" type="AnimatedSprite"]
 
 modulate = Color( 1, 0, 0, 0.530392 )
 scale = Vector2( 4, 4 )

@@ -4,7 +4,7 @@ export (String, FILE, "*tscn") var next_right
 export (String, FILE, "*tscn") var next_left
 
 func _ready():
-	
+
 	match GLOBAL.sens:
 		GLOBAL.LEFT:
 			$Player.global_position = $utils/spawn_right.global_position
