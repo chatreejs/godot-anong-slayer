@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const SPEED = 500
-const GRAVITY = 60
-const JUMP_POWER = -900
+const SPEED = 250
+const GRAVITY = 30
+const JUMP_POWER = -450
 const FLOOR = Vector2(0, -1)
 const DEADZONE = 0.3
 
@@ -27,7 +27,6 @@ var timer = 0.0
 
 func _ready():
 	change_state(IDLE)
-	pass
 	
 func _physics_process(delta):
 	timer += delta
@@ -41,7 +40,7 @@ func _physics_process(delta):
 	
 	if dir_x == 1:		
 		if dashing == true:
-			velocity.x = SPEED * 3
+			velocity.x = SPEED * 2
 		else:
 			velocity.x = SPEED
 		
@@ -49,7 +48,7 @@ func _physics_process(delta):
 		
 	elif dir_x == -1:
 		if dashing == true:
-			velocity.x = -SPEED * 3
+			velocity.x = -SPEED * 2
 		else:
 			velocity.x = -SPEED
 		
@@ -68,7 +67,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("dash"):
 		if !is_on_wall() and abs(velocity.x) > 0 and !is_dash:
 			if !is_on_floor() and is_jump:
-				GRAVITY = 0
+				GRAVITY = -10
 				$air_dash_time.start()
 			dashing = true
 			is_dash = true
@@ -79,13 +78,12 @@ func _physics_process(delta):
 		velocity.y = -20
 		$AnimatedSprite.play("grab")
 		if Input.is_action_just_pressed("jump"):
-			velocity = Vector2(-velocity.x * 2, -850)
+			velocity = Vector2(-velocity.x * 2, -400)
 			velocity = move_and_slide(velocity, FLOOR)
 			$AnimatedSprite.play("air_run")
 			Input.start_joy_vibration(0, 1, 1, 0.1)
 		
 	velocity.y += GRAVITY
-	print("vel x: " + str(velocity.x) + " y: " + str(velocity.y) + " is_jump: " +str(is_jump) + " is_dash: " + str(is_dash) + " state: " + str(state) + " on_ground: " + str(is_on_floor()))
 	
 	if is_on_floor():
 		on_ground = true
@@ -140,7 +138,7 @@ func change_state(new_state):
 		FALL:
 			$AnimatedSprite.play("fall")
 		DASH:
-			for x in range(0, 3):
+			for x in range(0, 4):
 				var i = img_dash.instance()
 				i.init(position, $AnimatedSprite)
 				get_parent().add_child(i)
@@ -149,4 +147,7 @@ func change_state(new_state):
 			change_state(IDLE)
 
 func _on_air_dash_time_timeout():
-	GRAVITY = 60
+	GRAVITY = 30
+
+func _on_screen_exited():
+	print("aaaa")

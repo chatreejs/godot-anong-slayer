@@ -18,13 +18,13 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 0, 0, 0.530392 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="dash" type="AnimatedSprite"]
 
-modulate = Color( 1, 0, 0, 0.530392 )
-scale = Vector2( 4, 4 )
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 2, 2 )
 animation = "default"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -38,5 +38,6 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/New = SubResource( 1 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 
