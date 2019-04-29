@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://code/reuseable_platform.gd" type="Script" id=1]
+[ext_resource path="res://asset/environment/texture.png" type="Texture" id=2]
+
+[node name="MovingPlatform" type="Node2D"]
+
+script = ExtResource( 1 )
+speed = 2.0
+longueur = Vector2( 300, 0 )
+
+[node name="Platform" type="KinematicBody2D" parent="." index="0" groups=[
+"platform",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="Platform" index="0"]
+
+position = Vector2( -32, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 416, 128, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="Platform" index="1"]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 368, 224, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Sprite3" type="Sprite" parent="Platform" index="2"]
+
+position = Vector2( 32, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 432, 96, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform" index="3"]
+
+position = Vector2( -32, -2 )
+build_mode = 0
+polygon = PoolVector2Array( -16, -10, 80, -10, 80, 18, -16, 18 )
+
+[node name="MovingTween" type="Tween" parent="." index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_completed" from="MovingTween" to="." method="_on_Tween_tween_completed"]
+
+

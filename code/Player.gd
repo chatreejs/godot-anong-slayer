@@ -18,6 +18,7 @@ var wall = false
 var is_jump = false
 var is_dash = false
 var dashing = false
+var on_platform = false
 
 var state
 enum {IDLE, RUN, JUMP, FALL, DASH, DEAD}
@@ -101,6 +102,18 @@ func _physics_process(delta):
 		wall = false
 		
 	velocity = move_and_slide(velocity, FLOOR)
+	
+#	if !on_platform:
+#		velocity = move_and_slide(velocity, FLOOR)
+#	else:
+#		pass
+	
+#	if get_slide_count() > 0:
+#		var kine = get_slide_collision(0)
+#		if kine.collider.is_in_group("platform"):
+#			on_platform = true
+	
+	
 	state_loop()
 	
 func jump():

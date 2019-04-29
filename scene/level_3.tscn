@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/bg_waterfall.png" type="Texture" id=6]
+[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=7]
 
-[node name="Scene" type="Node2D"]
+[node name="Scene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -139,6 +140,16 @@ position = Vector2( 572, 284 )
 scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 360, 400 )
+longueur = Vector2( 120, 0 )
+
+[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 736, 400 )
+longueur = Vector2( -120, 0 )
 
 [connection signal="body_entered" from="utils/exit_right" to="." method="_on_exit_right_body_entered"]
 
