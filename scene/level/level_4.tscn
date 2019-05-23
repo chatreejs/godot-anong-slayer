@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -6,10 +6,11 @@
 [ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/bg_night.png" type="Texture" id=6]
-[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://asset/environment/texture.png" type="Texture" id=8]
+[ext_resource path="res://scene/decoration/flower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://asset/environment/texture.png" type="Texture" id=9]
 
-[node name="Scene" type="Node2D" index="0"]
+[node name="Scene" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -149,7 +150,17 @@ scale = Vector2( 0.633333, 0.633333 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 7 )]
+[node name="flower01" parent="ParallaxBackground" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 208, 336 )
+region_rect = Rect2( 192, 0, 32, 32 )
+
+[node name="flower02" parent="ParallaxBackground" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 680, 208 )
+region_rect = Rect2( 32, 64, 32, 32 )
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 400, 192 )
 speed = 1
@@ -175,7 +186,7 @@ polygon = PoolVector2Array( -40, 12, -40, 24, 40, 24, 40, 12 )
 position = Vector2( -24, 28 )
 scale = Vector2( 2, 2 )
 z_index = -1
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 432, 192, 16, 16 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
@@ -185,7 +196,7 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 position = Vector2( 8, 28 )
 scale = Vector2( 2, 2 )
 z_index = -1
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 432, 192, 16, 16 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]
@@ -195,7 +206,7 @@ _sections_unfolded = [ "Region", "Transform", "Z Index" ]
 position = Vector2( 24, 28 )
 scale = Vector2( 2, 2 )
 z_index = -1
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 432, 192, 16, 16 )
 _sections_unfolded = [ "Region", "Transform", "Z Index" ]

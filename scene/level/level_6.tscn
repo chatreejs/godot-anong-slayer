@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/bg_cave_1.png" type="Texture" id=6]
-[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scene/decoration/flower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=8]
 
-[node name="Scene" type="Node2D" index="0"]
+[node name="Scene" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -148,7 +149,17 @@ scale = Vector2( 1.79928, 1.79928 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="1"]
+[node name="flower01" parent="ParallaxBackground" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 96, 176 )
+region_rect = Rect2( 288, 32, 32, 32 )
+
+[node name="flower02" parent="ParallaxBackground" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 864, 456 )
+region_rect = Rect2( 192, 32, 32, 32 )
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="3"]
 
 scale = Vector2( 2, 2 )
 mode = 0
@@ -170,25 +181,25 @@ format = 1
 tile_data = PoolIntArray( 851996, 9, 0, 851997, 9, 0, 917533, 1, 0, 983069, 1, 0 )
 _sections_unfolded = [ "Cell", "Transform" ]
 
-[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 7 )]
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 208, 400 )
 speed = 1
 longueur = Vector2( 150, 0 )
 
-[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 7 )]
+[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 592, 176 )
 speed = 1
 longueur = Vector2( 150, 0 )
 
-[node name="MovingPlatform3" parent="." index="6" instance=ExtResource( 7 )]
+[node name="MovingPlatform3" parent="." index="6" instance=ExtResource( 8 )]
 
 position = Vector2( 720, 336 )
 speed = 1
 longueur = Vector2( -150, 0 )
 
-[node name="MovingPlatform5" parent="." index="7" instance=ExtResource( 7 )]
+[node name="MovingPlatform5" parent="." index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 592, 448 )
 speed = 1

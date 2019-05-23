@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/texture.png" type="Texture" id=6]
 [ext_resource path="res://asset/environment/bg_cave_2.png" type="Texture" id=7]
+[ext_resource path="res://scene/decoration/flower.tscn" type="PackedScene" id=8]
 
 [node name="Scene" type="Node2D"]
 
@@ -186,7 +187,12 @@ scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="1"]
+[node name="flower01" parent="ParallaxBackground" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( 800, 136 )
+region_rect = Rect2( 288, 256, 32, 32 )
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="2"]
 
 scale = Vector2( 2, 2 )
 mode = 0

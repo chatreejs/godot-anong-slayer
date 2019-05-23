@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/bg_forest.png" type="Texture" id=6]
+[ext_resource path="res://scene/decoration/flower.tscn" type="PackedScene" id=7]
 
-[node name="Scene" type="Node2D" index="0"]
+[node name="Scene" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -146,6 +147,21 @@ position = Vector2( 512, 288 )
 scale = Vector2( 0.675521, 0.675521 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="flower01" parent="ParallaxBackground" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 128, 240 )
+region_rect = Rect2( 256, 192, 32, 32 )
+
+[node name="flower02" parent="ParallaxBackground" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 352, 328 )
+region_rect = Rect2( 256, 256, 32, 32 )
+
+[node name="flower03" parent="ParallaxBackground" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 640, 328 )
+region_rect = Rect2( 96, 224, 32, 32 )
 
 [connection signal="body_entered" from="utils/exit_right" to="." method="_on_exit_right_body_entered"]
 

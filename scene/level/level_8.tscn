@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/texture.png" type="Texture" id=6]
 [ext_resource path="res://asset/environment/bg_cave_2.png" type="Texture" id=7]
-[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=8]
-[ext_resource path="res://asset/environment/container_sprites.png" type="Texture" id=9]
+[ext_resource path="res://scene/decoration/flower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://asset/environment/container_sprites.png" type="Texture" id=10]
 
 [node name="Scene" type="Node2D"]
 
@@ -166,35 +167,32 @@ scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="1"]
+[node name="flower01" parent="ParallaxBackground" index="1" instance=ExtResource( 8 )]
 
-scale = Vector2( 2, 2 )
-mode = 0
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell", "Transform" ]
+position = Vector2( 304, 432 )
+region_rect = Rect2( 160, 224, 32, 32 )
 
-[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 8 )]
+[node name="flower02" parent="ParallaxBackground" index="2" instance=ExtResource( 8 )]
+
+position = Vector2( 928, 168 )
+region_rect = Rect2( 256, 160, 32, 32 )
+
+[node name="flower04" parent="ParallaxBackground" index="3" instance=ExtResource( 8 )]
+
+position = Vector2( 944, 168 )
+region_rect = Rect2( 256, 160, 32, 32 )
+
+[node name="flower03" parent="ParallaxBackground" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 880, 168 )
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 9 )]
 
 position = Vector2( 464, 400 )
 speed = 1
 longueur = Vector2( 70, 0 )
 
-[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 8 )]
+[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 9 )]
 
 position = Vector2( 720, 304 )
 speed = 1
@@ -204,7 +202,7 @@ longueur = Vector2( -70, 0 )
 
 position = Vector2( 892, 168 )
 z_index = -1
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 flip_h = true
 region_enabled = true
 region_rect = Rect2( 320, 384, 64, 64 )
