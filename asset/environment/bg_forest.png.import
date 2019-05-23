@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flower.png-b3bab4e9a221665f7092f5d52698cef0.stex"
+path="res://.import/bg_forest.png-708e86b01d70d5b4d7b886149c408213.stex"
 
 [deps]
 
-source_file="res://asset/environment/flower.png"
-dest_files=[ "res://.import/flower.png-b3bab4e9a221665f7092f5d52698cef0.stex" ]
+source_file="res://asset/environment/bg_forest.png"
+dest_files=[ "res://.import/bg_forest.png-708e86b01d70d5b4d7b886149c408213.stex" ]
 
 [params]
 

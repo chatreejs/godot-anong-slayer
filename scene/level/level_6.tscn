@@ -5,7 +5,7 @@
 [ext_resource path="res://scene/texture.tres" type="TileSet" id=3]
 [ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
-[ext_resource path="res://asset/environment/bg_dawn.png" type="Texture" id=6]
+[ext_resource path="res://asset/environment/bg_cave_1.png" type="Texture" id=6]
 [ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=7]
 
 [node name="Scene" type="Node2D" index="0"]
@@ -14,8 +14,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 384.0 ]
 }
-next_right = "res://scene/level/level_4.tscn"
-next_left = "res://scene/level/level_2.tscn"
+next_right = "res://scene/level/level_7.tscn"
+next_left = "res://scene/level/level_5.tscn"
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -40,7 +40,7 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 65535, 17, 0, 131071, 17, 0, 458750, 29, 0, 458751, 29, 0, 393216, 29, 0, 393217, 29, 0, 393218, 31, 0, 524287, 20, 0, 458752, 20, 0, 458753, 20, 0, 458754, 17, 0, 589823, 20, 0, 524288, 20, 0, 524289, 20, 0, 524290, 17, 0, 655359, 20, 0, 589824, 20, 0, 589825, 20, 0, 589826, 18, 0, 589827, 29, 0, 589828, 29, 0, 589829, 31, 0, 720895, 20, 0, 655360, 20, 0, 655361, 20, 0, 655362, 20, 0, 655363, 20, 0, 655364, 20, 0, 655365, 17, 0, 786431, 20, 0, 720896, 20, 0, 720897, 20, 0, 720898, 20, 0, 720899, 20, 0, 720900, 20, 0, 720901, 17, 0, 720921, 30, 0, 720922, 29, 0, 720923, 29, 0, 720924, 29, 0, 720925, 29, 0, 720926, 29, 0, 851967, 20, 0, 786432, 20, 0, 786433, 20, 0, 786434, 20, 0, 786435, 20, 0, 786436, 20, 0, 786437, 18, 0, 786438, 29, 0, 786439, 29, 0, 786440, 31, 0, 786457, 16, 0, 786458, 15, 0, 786459, 15, 0, 786460, 15, 0, 786461, 15, 0, 917503, 20, 0, 851968, 20, 0, 851969, 20, 0, 851970, 20, 0, 851971, 20, 0, 851972, 20, 0, 851973, 20, 0, 851974, 20, 0, 851975, 20, 0, 851976, 17, 0, 851993, 16, 0, 851994, 15, 0, 851995, 15, 0, 851996, 15, 0, 851997, 15, 0, 983039, 20, 0, 917504, 20, 0, 917505, 20, 0, 917506, 20, 0, 917507, 20, 0, 917508, 20, 0, 917509, 20, 0, 917510, 20, 0, 917511, 20, 0, 917512, 17, 0, 917529, 16, 0, 917530, 15, 0, 917531, 15, 0, 917532, 15, 0, 917533, 15, 0, 1048575, 20, 0, 983040, 20, 0, 983041, 20, 0, 983042, 20, 0, 983043, 20, 0, 983044, 20, 0, 983045, 20, 0, 983046, 20, 0, 983047, 20, 0, 983048, 17, 0, 983065, 16, 0, 983066, 15, 0, 983067, 15, 0, 983068, 15, 0, 983069, 15, 0, 1114111, 12, 0, 1048576, 12, 0, 1048577, 12, 0, 1048578, 12, 0, 1048579, 12, 0, 1048580, 12, 0, 1048581, 12, 0, 1048582, 12, 0, 1048583, 12, 0, 1048584, 14, 0, 1048601, 13, 0, 1048602, 12, 0, 1048603, 12, 0, 1048604, 12, 0, 1048605, 12, 0 )
+tile_data = PoolIntArray( -1, 12, 0, -65536, 12, 0, -65535, 12, 0, -65534, 12, 0, -65533, 12, 0, -65532, 12, 0, -65531, 12, 0, -65530, 12, 0, -65529, 12, 0, -65528, 12, 0, -65527, 12, 0, -65526, 12, 0, -65525, 12, 0, -65524, 12, 0, -65523, 12, 0, -65522, 12, 0, -65521, 12, 0, -65520, 12, 0, -65519, 12, 0, -65518, 12, 0, -65517, 12, 0, -65516, 12, 0, -65515, 12, 0, -65514, 12, 0, -65513, 12, 0, -65512, 12, 0, -65511, 12, 0, -65510, 12, 0, -65509, 12, 0, -65508, 12, 0, -65507, 12, 0, -65506, 15, 0, 30, 16, 0, 65566, 16, 0, 131102, 16, 0, 196638, 16, 0, 262173, 28, 0, 262174, 19, 0, 327708, 28, 0, 327710, 15, 0, 458750, 29, 0, 458751, 29, 0, 393216, 29, 0, 393217, 29, 0, 393218, 29, 0, 393219, 31, 0, 393243, 30, 0, 393245, 15, 0, 393246, 15, 0, 524287, 15, 0, 458752, 15, 0, 458753, 15, 0, 458754, 15, 0, 458755, 17, 0, 458765, 30, 0, 458766, 31, 0, 458779, 16, 0, 458780, 15, 0, 458781, 15, 0, 458782, 15, 0, 524288, 15, 0, 524289, 15, 0, 524290, 15, 0, 524291, 17, 0, 524301, 16, 0, 524302, 17, 0, 524315, 16, 0, 524316, 15, 0, 524317, 15, 0, 524318, 15, 0, 589824, 15, 0, 589825, 15, 0, 589826, 15, 0, 589827, 17, 0, 589837, 16, 0, 589838, 17, 0, 589851, 16, 0, 589852, 20, 0, 589853, 15, 0, 589854, 15, 0, 655360, 15, 0, 655361, 15, 0, 655362, 15, 0, 655363, 17, 0, 655373, 16, 0, 655374, 17, 0, 655387, 16, 0, 655388, 20, 0, 655389, 15, 0, 655390, 15, 0, 720896, 15, 0, 720897, 15, 0, 720898, 15, 0, 720899, 17, 0, 720909, 16, 0, 720910, 17, 0, 720923, 16, 0, 720924, 20, 0, 720925, 20, 0, 786432, 15, 0, 786433, 15, 0, 786434, 15, 0, 786435, 17, 0, 786445, 16, 0, 786446, 17, 0, 786459, 13, 0, 786460, 20, 0, 786461, 20, 0, 851968, 15, 0, 851969, 15, 0, 851970, 15, 0, 851971, 17, 0, 851981, 16, 0, 851982, 17, 0, 917504, 15, 0, 917505, 15, 0, 917506, 15, 0, 917507, 17, 0, 917517, 16, 0, 917518, 17, 0, 983040, 15, 0, 983041, 15, 0, 983042, 15, 0, 983043, 17, 0, 983053, 16, 0, 983054, 17, 0, 983066, 30, 0, 983067, 29, 0, 983068, 29, 0, 983069, 29, 0, 983070, 29, 0, 1048576, 15, 0, 1048577, 15, 0, 1048578, 15, 0, 1048579, 17, 0, 1048589, 16, 0, 1048590, 17, 0, 1048602, 16, 0, 1048603, 12, 0, 1048604, 12, 0, 1048605, 12, 0 )
 _sections_unfolded = [ "Cell", "Transform" ]
 
 [node name="utils" type="Node2D" parent="." index="2"]
@@ -51,12 +51,12 @@ position = Vector2( 32, 176 )
 
 [node name="spawn_right" type="Position2D" parent="utils" index="1"]
 
-position = Vector2( 896, 336 )
+position = Vector2( 928, 464 )
 
 [node name="exit_right" type="Area2D" parent="utils" index="2"]
 
 editor/display_folded = true
-position = Vector2( 1024, 288 )
+position = Vector2( 1024, 416 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -124,7 +124,7 @@ audio_bus_name = "Master"
 [node name="deadzone_collision" type="CollisionPolygon2D" parent="utils/deadzone" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 256, 544, 832, 544, 832, 592, 256, 592 )
+polygon = PoolVector2Array( 96, 544, 864, 544, 864, 592, 96, 592 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
 
@@ -143,20 +143,56 @@ _sections_unfolded = [ "Scroll" ]
 
 [node name="background" type="Sprite" parent="ParallaxBackground" index="0"]
 
-position = Vector2( 448, 368 )
-scale = Vector2( 0.578912, 0.578912 )
+position = Vector2( 496, 240 )
+scale = Vector2( 1.79928, 1.79928 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="1"]
+
+scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 851996, 9, 0, 851997, 9, 0, 917533, 1, 0, 983069, 1, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+
 [node name="MovingPlatform" parent="." index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 360, 400 )
-longueur = Vector2( 120, 0 )
+position = Vector2( 208, 400 )
+speed = 1
+longueur = Vector2( 150, 0 )
 
 [node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 736, 400 )
-longueur = Vector2( -120, 0 )
+position = Vector2( 592, 176 )
+speed = 1
+longueur = Vector2( 150, 0 )
+
+[node name="MovingPlatform3" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 720, 336 )
+speed = 1
+longueur = Vector2( -150, 0 )
+
+[node name="MovingPlatform5" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 592, 448 )
+speed = 1
+longueur = Vector2( 150, 0 )
 
 [connection signal="body_entered" from="utils/exit_right" to="." method="_on_exit_right_body_entered"]
 

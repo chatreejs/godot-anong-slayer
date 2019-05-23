@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://code/Scence.gd" type="Script" id=1]
+[ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene/texture.tres" type="TileSet" id=3]
+[ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
+[ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
+[ext_resource path="res://asset/environment/texture.png" type="Texture" id=6]
+[ext_resource path="res://asset/environment/bg_cave_2.png" type="Texture" id=7]
+[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://asset/environment/container_sprites.png" type="Texture" id=9]
+
+[node name="Scene" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 384.0 ]
+}
+next_right = ""
+next_left = "res://scene/level/level_7.tscn"
+
+[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( -80, -32 )
+
+[node name="Terrain" type="TileMap" parent="." index="1"]
+
+scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65536, 21, 0, -65535, 21, 0, -65534, 21, 0, -65533, 21, 0, -65532, 21, 0, -65531, 21, 0, -65530, 21, 0, -65529, 21, 0, -65528, 21, 0, -65527, 21, 0, -65526, 21, 0, -65525, 21, 0, -65524, 25, 0, -65523, 12, 0, -65522, 12, 0, -65521, 12, 0, -65520, 12, 0, -65519, 12, 0, -65518, 12, 0, -65517, 12, 0, -65516, 12, 0, -65515, 12, 0, -65514, 12, 0, -65513, 12, 0, -65512, 12, 0, -65511, 12, 0, -65510, 12, 0, -65509, 12, 0, -65508, 12, 0, -65507, 12, 0, -65506, 21, 0, 0, 21, 0, 1, 21, 0, 2, 15, 0, 3, 15, 0, 4, 15, 0, 5, 15, 0, 6, 15, 0, 7, 15, 0, 8, 21, 0, 9, 21, 0, 10, 21, 0, 11, 25, 0, 12, 15, 0, 13, 15, 0, 14, 15, 0, 15, 15, 0, 16, 15, 0, 17, 15, 0, 18, 15, 0, 19, 15, 0, 20, 15, 0, 21, 15, 0, 22, 15, 0, 23, 15, 0, 24, 15, 0, 25, 15, 0, 26, 15, 0, 27, 15, 0, 28, 15, 0, 29, 15, 0, 30, 15, 0, 65536, 15, 0, 65537, 15, 0, 65538, 15, 0, 65539, 15, 0, 65540, 15, 0, 65541, 15, 0, 65542, 15, 0, 65543, 15, 0, 65544, 15, 0, 65545, 15, 0, 65546, 25, 0, 65547, 12, 0, 65548, 12, 0, 65549, 12, 0, 65550, 12, 0, 65551, 12, 0, 65552, 12, 0, 65553, 12, 0, 65554, 12, 0, 65555, 12, 0, 65556, 12, 0, 65557, 12, 0, 65558, 12, 0, 65559, 12, 0, 65560, 12, 0, 65561, 12, 0, 65562, 12, 0, 65563, 12, 0, 65564, 12, 0, 65565, 12, 0, 65566, 15, 0, 131072, 15, 0, 131073, 15, 0, 131074, 15, 0, 131075, 15, 0, 131076, 15, 0, 131077, 15, 0, 131078, 15, 0, 131079, 15, 0, 131080, 15, 0, 131081, 25, 0, 131102, 16, 0, 196608, 15, 0, 196609, 15, 0, 196610, 15, 0, 196611, 15, 0, 196612, 15, 0, 196613, 25, 0, 196614, 12, 0, 196615, 12, 0, 196616, 12, 0, 196638, 16, 0, 327679, 15, 0, 262144, 15, 0, 262145, 15, 0, 262146, 15, 0, 262147, 15, 0, 262148, 25, 0, 262174, 16, 0, 393215, 15, 0, 327680, 15, 0, 327681, 15, 0, 327682, 15, 0, 327683, 25, 0, 327710, 16, 0, 458751, 15, 0, 393216, 15, 0, 393217, 15, 0, 393218, 15, 0, 393242, 30, 0, 393243, 29, 0, 393244, 29, 0, 393245, 29, 0, 393246, 14, 0, 458778, 16, 0, 458779, 15, 0, 458780, 15, 0, 458781, 15, 0, 524314, 16, 0, 524315, 15, 0, 524316, 15, 0, 524317, 15, 0, 655358, 29, 0, 655359, 29, 0, 589824, 29, 0, 589825, 29, 0, 589826, 29, 0, 589827, 31, 0, 589850, 16, 0, 589851, 15, 0, 589852, 15, 0, 589853, 15, 0, 655360, 21, 0, 655361, 21, 0, 655362, 21, 0, 655363, 17, 0, 655386, 16, 0, 655387, 15, 0, 655388, 15, 0, 655389, 15, 0, 720896, 21, 0, 720897, 21, 0, 720898, 25, 0, 720899, 17, 0, 720921, 30, 0, 720922, 19, 0, 720923, 15, 0, 720924, 15, 0, 720925, 15, 0, 786432, 15, 0, 786433, 15, 0, 786457, 16, 0, 786458, 15, 0, 786459, 15, 0, 786460, 15, 0, 786461, 15, 0, 851968, 15, 0, 851969, 15, 0, 851992, 30, 0, 851993, 19, 0, 851994, 15, 0, 851995, 15, 0, 851996, 15, 0, 851997, 15, 0, 917504, 15, 0, 917505, 17, 0, 917512, 30, 0, 917513, 31, 0, 917528, 16, 0, 917529, 15, 0, 917530, 15, 0, 917531, 15, 0, 917532, 15, 0, 917533, 15, 0, 983040, 15, 0, 983041, 17, 0, 983048, 16, 0, 983049, 14, 0, 983064, 16, 0, 983065, 15, 0, 983066, 15, 0, 983067, 15, 0, 983068, 15, 0, 983069, 15, 0, 1048576, 15, 0, 1048577, 17, 0, 1048584, 16, 0, 1048585, 14, 0, 1048600, 16, 0, 1048601, 14, 0, 1048602, 14, 0, 1048603, 14, 0, 1048604, 14, 0, 1048605, 14, 0, 1114112, 15, 0, 1114113, 17, 0, 1179648, 15, 0, 1179649, 17, 0, 1245185, 17, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="utils" type="Node2D" parent="." index="2"]
+
+[node name="spawn_left" type="Position2D" parent="utils" index="0"]
+
+position = Vector2( 32, 272 )
+
+[node name="spawn_right" type="Position2D" parent="utils" index="1"]
+
+position = Vector2( 928, 176 )
+
+[node name="exit_right" type="Area2D" parent="utils" index="2"]
+
+editor/display_folded = true
+position = Vector2( 1024, 304 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="utils/exit_right" index="0"]
+
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="utils/exit_right" index="1"]
+
+position = Vector2( -1952, -736 )
+build_mode = 0
+polygon = PoolVector2Array( 1888, 672, 2016, 672, 2016, 800, 1888, 800 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="exit_left" type="Area2D" parent="utils" index="3"]
+
+editor/display_folded = true
+position = Vector2( -96, 224 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="utils/exit_left" index="0"]
+
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="utils/exit_left" index="1"]
+
+position = Vector2( -1952, -736 )
+build_mode = 0
+polygon = PoolVector2Array( 1888, 672, 2016, 672, 2016, 800, 1888, 800 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="deadzone" type="Area2D" parent="utils" index="4"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="deadzone_collision" type="CollisionPolygon2D" parent="utils/deadzone" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 64, 544, 928, 544, 928, 592, 64, 592 )
+
+[node name="spike_collision" type="CollisionPolygon2D" parent="utils/deadzone" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 260, 440, 292, 440, 292, 452, 260, 452 )
+
+[node name="spike" type="Sprite" parent="utils/deadzone" index="2"]
+
+position = Vector2( 276, 436 )
+scale = Vector2( 2, 2 )
+z_index = -1
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 416, 192, 16, 16 )
+region_filter_clip = true
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="background" type="Sprite" parent="ParallaxBackground" index="0"]
+
+position = Vector2( 80, 224 )
+scale = Vector2( 2.2, 2.2 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground" index="1"]
+
+scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 464, 400 )
+speed = 1
+longueur = Vector2( 70, 0 )
+
+[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 8 )]
+
+position = Vector2( 720, 304 )
+speed = 1
+longueur = Vector2( -70, 0 )
+
+[node name="chest" type="Sprite" parent="." index="6"]
+
+position = Vector2( 892, 168 )
+z_index = -1
+texture = ExtResource( 9 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 320, 384, 64, 64 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[connection signal="body_entered" from="utils/exit_right" to="." method="_on_exit_right_body_entered"]
+
+[connection signal="body_entered" from="utils/exit_left" to="." method="_on_exit_left_body_entered"]
+
+[connection signal="body_entered" from="utils/deadzone" to="." method="_on_deadzone_body_entered"]
+
+

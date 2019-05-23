@@ -22,4 +22,11 @@ func _on_exit_left_body_entered(body):
 
 func _on_deadzone_body_entered(body):
 	if body.name == 'Player':
-		$Player.global_position = $utils/spawn_left.global_position
+		player_dead()
+
+func _on_nham_body_entered(body):
+	if body.name == 'Player':
+		player_dead()
+
+func player_dead():
+	$Player.global_position = $utils/spawn_left.global_position

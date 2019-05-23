@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://code/Scence.gd" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://asset/environment/right.png" type="Texture" id=4]
 [ext_resource path="res://asset/environment/left.png" type="Texture" id=5]
 [ext_resource path="res://asset/environment/bg_waterfall.png" type="Texture" id=6]
-[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://asset/button/button.png" type="Texture" id=7]
+[ext_resource path="res://asset/environment/fungi_sprites.png" type="Texture" id=8]
+[ext_resource path="res://asset/environment/flower_sprite.png" type="Texture" id=9]
+[ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=10]
 
 [node name="Scene" type="Node2D"]
 
@@ -123,14 +126,13 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="utils/deadzone" index="0"]
+[node name="deadzone_collision" type="CollisionPolygon2D" parent="utils/deadzone" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -32, -32.3555, -32, 15.6445, 32, 15.6445, 32, -32.3555 )
+polygon = PoolVector2Array( -32, -32, -32, 16, 32, 15.6445, 32, -32.3555 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -144,21 +146,75 @@ scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
 _sections_unfolded = [ "Scroll" ]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+[node name="background" type="Sprite" parent="ParallaxBackground" index="0"]
 
-motion_scale = Vector2( 1, 1 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
-
-[node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
-
-position = Vector2( 572, 284 )
-scale = Vector2( 2.2, 2.2 )
+position = Vector2( 640, 288 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 7 )]
+[node name="jump_key" type="Sprite" parent="ParallaxBackground" index="1"]
+
+position = Vector2( 528, 336 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="right_key" type="Sprite" parent="ParallaxBackground" index="2"]
+
+position = Vector2( 496, 336 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 80, 32, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="+" type="Sprite" parent="ParallaxBackground" index="3"]
+
+position = Vector2( 560, 336 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="dash_key" type="Sprite" parent="ParallaxBackground" index="4"]
+
+position = Vector2( 592, 336 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 16, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="fungi01" type="Sprite" parent="ParallaxBackground" index="5"]
+
+position = Vector2( 164, 392 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="fungi02" type="Sprite" parent="ParallaxBackground" index="6"]
+
+position = Vector2( 896, 396 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 576, 128, 64, 64 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="flower01" type="Sprite" parent="ParallaxBackground" index="7"]
+
+position = Vector2( 760, 396 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 224, 128, 32, 32 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 10 )]
 
 position = Vector2( 328, 216 )
 
