@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-246eb5257895445b2c60e034c8807baf.stex"
+path="res://.import/idle_02.png-dcb1f36e3b2164729d7c5617c5b02a66.stex"
 
 [deps]
 
-source_file="res://asset/icon.png"
-dest_files=[ "res://.import/icon.png-246eb5257895445b2c60e034c8807baf.stex" ]
+source_file="res://asset/player/anong-boy/idle_02.png"
+dest_files=[ "res://.import/idle_02.png-dcb1f36e3b2164729d7c5617c5b02a66.stex" ]
 
 [params]
 

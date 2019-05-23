@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-246eb5257895445b2c60e034c8807baf.stex"
+path="res://.import/run_04.png-6e8c59ddba986645ab64f142a959d811.stex"
 
 [deps]
 
-source_file="res://asset/icon.png"
-dest_files=[ "res://.import/icon.png-246eb5257895445b2c60e034c8807baf.stex" ]
+source_file="res://asset/player/anong-boy/run_04.png"
+dest_files=[ "res://.import/run_04.png-6e8c59ddba986645ab64f142a959d811.stex" ]
 
 [params]
 

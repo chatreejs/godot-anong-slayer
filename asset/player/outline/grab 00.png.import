@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-246eb5257895445b2c60e034c8807baf.stex"
+path="res://.import/grab 00.png-04cd8895242ce58f655e5a58f3bdb667.stex"
 
 [deps]
 
-source_file="res://asset/icon.png"
-dest_files=[ "res://.import/icon.png-246eb5257895445b2c60e034c8807baf.stex" ]
+source_file="res://asset/player/outline/grab 00.png"
+dest_files=[ "res://.import/grab 00.png-04cd8895242ce58f655e5a58f3bdb667.stex" ]
 
 [params]
 
