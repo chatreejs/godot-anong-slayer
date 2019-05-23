@@ -21,6 +21,5 @@ func _on_exit_left_body_entered(body):
 		get_tree().change_scene(next_left)
 
 func _on_deadzone_body_entered(body):
-	print("dead")
 	if body.name == 'Player':
 		$Player.global_position = $utils/spawn_left.global_position

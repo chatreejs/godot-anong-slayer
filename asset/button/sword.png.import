@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/xbox.png-401f32e6174cc1f0c181ced2ab31eba4.stex"
+path="res://.import/sword.png-66d31d67d037951d50e5e92d6ec93a38.stex"
 
 [deps]
 
-source_file="res://asset/environment/xbox.png"
-dest_files=[ "res://.import/xbox.png-401f32e6174cc1f0c181ced2ab31eba4.stex" ]
+source_file="res://asset/button/sword.png"
+dest_files=[ "res://.import/sword.png-66d31d67d037951d50e5e92d6ec93a38.stex" ]
 
 [params]
 

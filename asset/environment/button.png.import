@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/xbox.png-401f32e6174cc1f0c181ced2ab31eba4.stex"
+path="res://.import/button.png-6632633f633ab538f1aa9b8be85a5690.stex"
 
 [deps]
 
-source_file="res://asset/environment/xbox.png"
-dest_files=[ "res://.import/xbox.png-401f32e6174cc1f0c181ced2ab31eba4.stex" ]
+source_file="res://asset/environment/button.png"
+dest_files=[ "res://.import/button.png-6632633f633ab538f1aa9b8be85a5690.stex" ]
 
 [params]
 

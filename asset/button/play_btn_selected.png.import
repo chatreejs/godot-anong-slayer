@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deadzone.png-7d980b09fedb4a3fb85436262d2cb56b.stex"
+path="res://.import/play_btn_selected.png-3e66856e1d31ec77124f23fdb838b3a9.stex"
 
 [deps]
 
-source_file="res://asset/environment/deadzone.png"
-dest_files=[ "res://.import/deadzone.png-7d980b09fedb4a3fb85436262d2cb56b.stex" ]
+source_file="res://asset/button/play_btn_selected.png"
+dest_files=[ "res://.import/play_btn_selected.png-3e66856e1d31ec77124f23fdb838b3a9.stex" ]
 
 [params]
 
