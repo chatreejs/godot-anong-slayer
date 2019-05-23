@@ -11,7 +11,7 @@
 [ext_resource path="res://asset/environment/flower_sprite.png" type="Texture" id=9]
 [ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=10]
 
-[node name="Scene" type="Node2D"]
+[node name="Scene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 __meta__ = {

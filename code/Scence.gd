@@ -30,3 +30,7 @@ func _on_nham_body_entered(body):
 
 func player_dead():
 	$Player.global_position = $utils/spawn_left.global_position
+
+func _on_AreaChest_body_entered(body):
+	if body.name == 'Player':
+		get_tree().change_scene("res://scene/level/level_end.tscn")

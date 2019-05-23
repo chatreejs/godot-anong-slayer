@@ -10,7 +10,7 @@
 [ext_resource path="res://scene/reuseable_platform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://asset/environment/container_sprites.png" type="Texture" id=9]
 
-[node name="Scene" type="Node2D" index="0"]
+[node name="Scene" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -210,10 +210,27 @@ region_enabled = true
 region_rect = Rect2( 320, 384, 64, 64 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
+[node name="AreaChest" type="Area2D" parent="chest" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="chest/AreaChest" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -26, -12, 24, -12, 24, 26, -26, 26 )
+
 [connection signal="body_entered" from="utils/exit_right" to="." method="_on_exit_right_body_entered"]
 
 [connection signal="body_entered" from="utils/exit_left" to="." method="_on_exit_left_body_entered"]
 
 [connection signal="body_entered" from="utils/deadzone" to="." method="_on_deadzone_body_entered"]
+
+[connection signal="body_entered" from="chest/AreaChest" to="." method="_on_AreaChest_body_entered"]
 
 
